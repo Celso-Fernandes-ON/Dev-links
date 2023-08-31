@@ -10,7 +10,8 @@
     --surface-color: rgba(255, 255, 255, 0.1);
     --surface-colors-hover:rgba(255, 255, 255, 0.05);
     --highlight-color: rgba(255, 255, 255, 0.2);
-    --switch-bg-url: url(./assets/moon-stars.svg)
+    --switch-bg-url: url(./assets/moon-stars.svg);
+    --footer-color: white;
 }
 .light{
     --bg-dg: linear-gradient(#bdebdf, #4ea8fc, #ffffff);
@@ -19,8 +20,8 @@
     --surface-color: rgba(0, 0, 0, 0.1);
     --surface-color-hover:rgba(0, 0, 0, 0.05);
     --highlight-color: rgba(0, 0, 0, 0.2);
-    --switch-bg-url: url(./assets/sun.svg)
-
+    --switch-bg-url: url(./assets/sun.svg);
+    --footer-color: #BCDBDB;
 }
 .light #bg-dark{
     animation: bg-out 1s forwards;
@@ -161,18 +162,12 @@ footer{
     padding: 24px;
     text-align: center;
     font-size: 16px;
+    color: var(--footer-color);
+    text-shadow: 1px 1px 5px black;
 }
-/* @media (min-width: 700px){
-    :root{
-        --bg-img:url(./assets/Forest-Dark.jpg);
-    }
-    .light{
-        --bg-img:url(./assets/Forest-Light.jpg);
-    }
-    .apocalipse{
-        --bg-img:url(./assets/DD\ Ft\ \ 60012-02.svg);
-    }
-} */
+footer a{
+    color: var(--footer-color);
+}
 @keyframes slide-in{
     from{
         left: 0;
