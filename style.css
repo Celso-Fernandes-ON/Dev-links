@@ -5,7 +5,7 @@
 }
 :root{
     --text-color: white;
-    --bg-img:url(./assets/bg-mobile.jpg);
+    --bg-dg: linear-gradient(#192335, #000000);
     --stroke-color:rgba(255, 255, 255, 0.5);
     --surface-color: rgba(255, 255, 255, 0.1);
     --surface-colors-hover:rgba(255, 255, 255, 0.05);
@@ -13,28 +13,55 @@
     --switch-bg-url: url(./assets/moon-stars.svg)
 }
 .light{
+    --bg-dg: linear-gradient(#bdebdf, #4ea8fc, #ffffff);
     --text-color: black;
-    --bg-img:url(./assets/bg-mobile-light.jpg);
     --stroke-color:rgba(0, 0, 0, 0.5);
     --surface-color: rgba(0, 0, 0, 0.1);
     --surface-color-hover:rgba(0, 0, 0, 0.05);
     --highlight-color: rgba(0, 0, 0, 0.2);
     --switch-bg-url: url(./assets/sun.svg)
+
+}
+.light #bg-dark{
+    animation: bg-out 1s forwards;
+}
+.light #bg-light{
+    animation: bg-out 0.7s reverse forwards;
 }
 body{
-    background: var(--bg-img) no-repeat top center/cover;
+    background: var(--bg-dg) no-repeat bottom center/cover;
     height: 100vh;
+    overflow: hidden;
+    position: relative;
 }
 body * {
     font-family: 'Inter', sans-serif;
-    color: var(--text-color)   ;
+    color: var(--text-color);
+}
+main{
+    justify-content: center;
+    display: flex;
 }
 #container{
+    top: 0;
+    position: absolute;
     width: 100%;
     max-width: 588px;
     display: block;
     margin: 50px auto 0px;
     padding: 0 24px;
+}
+.bg-switch img{
+    width: 100%;
+    object-fit: cover;
+    height: 100vh;
+    position: absolute;
+}
+.cls-1{
+    animation: moon-in 0.5s ;
+}
+.light .cls-1{
+    animation: moon-out 0.5s forwards;
 }
 #profile{
     text-align: center;
@@ -47,6 +74,10 @@ body * {
     font-weight: 500;
     line-height: 24px;
     margin-top: 8px;
+    text-shadow: 1px 1px 5px black;
+    }
+.light #profile p{
+    text-shadow: none;
 }
 #switch{
     position: relative;
@@ -106,7 +137,6 @@ ul li a{
 ul li a:hover{
     border: 1.5px solid var(--text-color);
     background-color: var(--surface-color-hover);
-
 }
 #social-links{
     display: flex;
@@ -132,14 +162,17 @@ footer{
     text-align: center;
     font-size: 16px;
 }
-@media (min-width: 700px){
+/* @media (min-width: 700px){
     :root{
-        --bg-img:url(./assets/bg-desktop.jpg);
+        --bg-img:url(./assets/Forest-Dark.jpg);
     }
     .light{
-        --bg-img:url(./assets/bg-desktop-light.jpg);
+        --bg-img:url(./assets/Forest-Light.jpg);
     }
-}
+    .apocalipse{
+        --bg-img:url(./assets/DD\ Ft\ \ 60012-02.svg);
+    }
+} */
 @keyframes slide-in{
     from{
         left: 0;
@@ -154,5 +187,33 @@ footer{
     }
     to{
         left: 0;
+    }
+}
+@keyframes moon-in{
+    from{
+        transform: translateY(700px);
+        opacity: 0;
+    }
+    to{
+        transform: translateY(0);
+        opacity: 100%;
+    }
+}
+@keyframes moon-out{
+    from{
+        transform: translateY(0);
+        opacity: 100%;
+    }
+    to{
+        transform: translateY(-700px);
+        opacity: 0;
+    }
+}
+@keyframes bg-out{
+    form{
+        opacity: 100%;
+    }
+    to{
+        opacity: 0;
     }
 }

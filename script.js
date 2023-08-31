@@ -1,10 +1,14 @@
+var back = 0;
 function toggleMode(){
     const html = document.documentElement
-    // if(html.classList.contains('light')){
-    //     html.classList.remove('light')
+        html.classList.toggle('light')
+    // if (back > 2){
+    //     const html = document.documentElement
+    //     html.classList.toggle('apocalipse')
     // }
     // else{
-    //     html.classList.add('light')
+    //     const html = document.documentElement
+    //     html.classList.toggle('light')
+    //     back++
     // }
-    html.classList.toggle('light')
 }
